@@ -6,12 +6,11 @@ const lightbox = new SimpleLightbox('.gallery a', {});
 
 export function render(items) {
   const markup = templateImages(items);
-  refs.galleryElem.innerHTML = markup;
+  refs.galleryElem.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
 
 export function templateImage(item) {
-  console.log(item);
   return `<li class="gallery-item">
   <a class="gallery-link" href="${item.largeImageURL}">
         <img class="gallery-link" alt="" src="${item.previewURL}" />
